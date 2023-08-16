@@ -1,0 +1,27 @@
+#!/bin/bash
+set -x
+echo "alias k=kubectl" | tee -a .bashrc
+echo "alias k=kubectl" | tee -a .bashrc
+sleep 2
+
+alias k=kubectl
+
+kubeadm init --apiserver-advertise-address $(hostname -i) --pod-network-cidr 10.244.0.0/16 &
+
+wait %1
+
+kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml &
+wait %1
+
+sleep 3
+export KUBECONFIG=/etc/kubernetes/admin.conf 
+export KUBECONFIG=/etc/kubernetes/admin.conf 
+sleep 3
+
+sleep 2
+echo "set nu ai" >> ~/.vimrc
+echo "set nu ai" >> ~/.vimrc
+sleep 2
+source .bashrc
+
+
